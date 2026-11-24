@@ -16,6 +16,7 @@ import Dfinance from "@/components/dashboard/Dfinance";
 import Dcore from "@/components/dashboard/Dcore";
 import NoRolePage from "@/components/dashboard/no-role";
 import { useAuth } from "@/contexts/AuthContext";
+import PartnersPage from "@/components/dashboard/partners";
 
 export default function DashboardPage() {
   const [roleComponent, setRoleComponent] = useState<JSX.Element | null>(null);
@@ -47,6 +48,9 @@ export default function DashboardPage() {
     }
     else if (role.ptype === "CONSULTANT") {
       return <Consultent />;
+    }
+    else if (role.ptype === "PARTNER") {
+      return <PartnersPage />;
     }
     else if (role.ptype === "EMP") {
       const stype = role.stype?.toUpperCase();
